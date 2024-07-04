@@ -1,0 +1,8 @@
+syntax = 'proto3';
+
+package inital;
+
+message InitialPacket{
+    string deviceId =1;//모바일겜 기준 각각의 디바이스 아이디가 있음 pk로 자주 사용하긴함 그걸 가정하고 이걸 선언함
+
+}

@@ -48,7 +48,9 @@ export const loadProtos = async () => {
   }
 };
 
+export const getProtoMessages = () => {
+  return { ...protoMessages }; //얕은 복사로 원본을 참조만 함
+};
 
-export const getProtoMessages =()=>{
-  return {...protoMessages}//얕은 복사로 원본을 참조만 함
-}
+
+//file:///c:/Users/hong/Desktop/Multiplayer-game-server/src/init/index.js
