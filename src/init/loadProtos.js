@@ -47,3 +47,8 @@ export const loadProtos = async () => {
     console.error("protobuf파일 로드중 오류가 발생했습니다", error);
   }
 };
+
+
+export const getProtoMessages =()=>{
+  return {...protoMessages}//얕은 복사로 원본을 참조만 함
+}
