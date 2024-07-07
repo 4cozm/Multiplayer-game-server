@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 import { getProtoMessages } from '../../init/loadProtos.js';
 import { getProtoTypeNameByHandlerId } from '../../handlers/index.js';
 import { config } from '../../config/config.js';
 import CustomError from '../error/customError.js';
 import { ErrorCodes } from '../error/errorCodes.js';
+=======
+import { getProtoMessages } from "../../init/loadProtos.js";
+>>>>>>> parent of 72e8abb (update: 에러 핸들러)
 
 export const packetParser = (data) => {
   const protoMessages = getProtoMessages();
@@ -13,14 +17,20 @@ export const packetParser = (data) => {
   try {
     packet = Packet.decode(data);
   } catch (error) {
+<<<<<<< HEAD
     throw new CustomError(ErrorCodes.PACKET_DECODE_ERROR, '패킷 디코딩 중 오류가 발생했습니다.');
+=======
+    console.error(e);
+>>>>>>> parent of 72e8abb (update: 에러 핸들러)
   }
 
   const handlerId = packet.handlerId;
   const userId = packet.userId;
   const clientVersion = packet.clientVersion;
+  const payload = packet.payload;
   const sequence = packet.sequence;
 
+<<<<<<< HEAD
   // clientVersion 검증
   if (clientVersion !== config.client.version) {
     throw new CustomError(
@@ -63,6 +73,9 @@ export const packetParser = (data) => {
       `필수 필드가 누락되었습니다: ${missingFields.join(', ')}`,
     );
   }
+=======
+  console.log(`clientVersion:${clientVersion}`);
+>>>>>>> parent of 72e8abb (update: 에러 핸들러)
 
   return { handlerId, userId, payload, sequence };
 };

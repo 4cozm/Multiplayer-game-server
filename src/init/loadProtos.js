@@ -48,7 +48,10 @@ export const loadProtos = async () => {
   }
 };
 
-export const getProtoMessages = () => {
-  return { ...protoMessages }; //얕은 복사로 원본을 참조만 함
-};
 
+<<<<<<< HEAD
+=======
+export const getProtoMessages =()=>{
+  return {...protoMessages}//얕은 복사로 원본을 참조만 함
+}
+>>>>>>> parent of 72e8abb (update: 에러 핸들러)

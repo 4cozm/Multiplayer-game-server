@@ -4,9 +4,12 @@ export const packetNames = {
   common: {
     Packet: "common.Packet",
   },
+<<<<<<< HEAD
   initial: {
     InitialPacket: "initial.InitialPacket",
   },
+=======
+>>>>>>> parent of 72e8abb (update: 에러 핸들러)
   response: {
     Response: "response.Response",
   },
