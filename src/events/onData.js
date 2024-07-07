@@ -1,14 +1,14 @@
 //커링(Currying)이라는 ES6문법 씀 매개변수 2개받음
 
-import CustomError from "../utils/parser/error/customError.js";
+import CustomError from "../utils/error/customError.js";
 
 import config from "../config/config.js";
 import { PACKET_TYPE } from "../constants/header.js";
 import { getHandlerById } from "../handlers/index.js";
 import { getUserById } from "../session/user.session.js";
 import { packetParser } from "../utils/parser/packetParser.js";
-import { ErrorCodes } from "../utils/parser/error/errorCodes.js";
-import { handlerError } from "../utils/parser/error/errorHandler.js";
+import { ErrorCodes } from "../utils/error/errorCodes.js";
+import { handlerError } from "../utils/error/errorHandler.js";
 
 //스트림을 사용해서 원하는 길이만큼 청크가 도착했을때 잘라서 사용하는 방법임
 export const onData = (socket) => async (data) => {

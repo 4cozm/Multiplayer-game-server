@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "client": "node ./test_client/client.js"
+    "client": "node ./test_client/client.js",
+    "migrate": "node src/utils/db/migration/crateSchemas.js"
   },
   "keywords": [],
   "author": "",

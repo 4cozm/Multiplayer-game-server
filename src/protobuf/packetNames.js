@@ -5,7 +5,7 @@ export const packetNames = {
     Packet: "common.Packet",
   },
   initial: {
-    InitialPacket: "initial.Packet",
+    InitialPacket: "initial.InitialPacket",
   },
   response: {
     Response: "response.Response",
