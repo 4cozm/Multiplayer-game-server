@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package location;
+
+// 위치 정보 메시지 구조
+message LocationUpdate {
+  repeated UserLocation users = 0; // 여러 사용자들의 위치 정보를 한 번에 전달할 수 있음
+  
+  message UserLocation {
+    string id = 1;
+    uint32 playerId = 2;
+    float x = 3;
+    float y = 4;
+  }
+}

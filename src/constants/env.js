@@ -1,4 +1,4 @@
-// 중앙 집중식 관리?
+// 중앙 집중식 관리
 
 import dotenv from 'dotenv';
 
