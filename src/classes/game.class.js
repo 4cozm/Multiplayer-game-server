@@ -1,4 +1,6 @@
-const MAX_PLAYERS = 20;
+import positionUpdate from "../handlers/game/move.handler.js";
+
+const MAX_PLAYERS = 2;
 
 class Game {
   constructor(id) {
@@ -11,8 +13,8 @@ class Game {
     if (this.users.length >= MAX_PLAYERS) {
       throw new Error("Game session is full");
     }
-    this.users.push(user);
 
+    this.users.push(user);
     if (this.users.length === MAX_PLAYERS) {
       setTimeout(() => {
         this.startGame();
@@ -36,28 +38,12 @@ class Game {
     this.state = "inProgress";
   }
 
-  getAllUserLocations() {
-    try {
-      const locationData = this.users.map(({ id, playerId, x, y }) => ({
-        id,
-        playerId,
-        x,
-        y,
-      }));
-
-      return; //로케이션 업데이트 패킷 전달
-    } catch (error) {
-      console.error("유저의 위치를 가져오는 중 에러 발생 :", error);
-      return null;
-    }
-  }
   getOtherUsersLocation(userId) {
-    //userId 위치는 변경에서 제외하지 않으면 반응이 느려짐
     const locationData = this.users
       .filter((user) => user.id !== userId)
       .map(({ id, playerId, x, y }) => ({ id, playerId, x, y }));
 
-    return; //로케이션 업데이트 패킷 전달
+    return positionUpdate(locationData);
   }
   catch(error) {
     console.error("다른 유저의 위치를 가져오는 중 에러 발생:", error);

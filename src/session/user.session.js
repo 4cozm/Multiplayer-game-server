@@ -1,7 +1,8 @@
 import { userSessions } from "./sessions.js";
+import { User } from "../classes/user.class.js";
 
-export const addUser = (socket, uuid) => {
-  const user = { socket, id: uuid, sequence: 0 }; //유저의 초기화 상태
+export const addUser = (socket, uuid, playerId) => {
+  const user = new User(uuid, socket, playerId); //유저의 초기화 상태
   userSessions.push(user);
   return user;
 };

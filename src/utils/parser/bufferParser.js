@@ -1,3 +1,5 @@
+import config from "../../config/config.js";
+
 const buffer = (message, type) => {
   const packetLength = Buffer.alloc(config.packet.totalLength);
   packetLength.writeUInt32BE(message.length + config.packet.totalLength + config.packet.typeLength, 0);

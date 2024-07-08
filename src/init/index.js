@@ -1,13 +1,12 @@
-import pools from "../db/database.js";
-import { testAllConnections } from "../utils/db/testConnection.js";
 import { loadGameAssets } from "./assets.js";
 import { loadProtos } from "./loadProtos.js";
+import { makeGameSession } from "../session/game.session.js";
 
 const initServer = async () => {
   try {
     await loadGameAssets();
     await loadProtos();
-    await testAllConnections(pools);
+    makeGameSession();
   } catch (error) {
     console.error(error);
     process.exit(1); //이번엔 서버 초기에 DB를 불러오는데,DB문제가 생기면 즉시 종료시킴
