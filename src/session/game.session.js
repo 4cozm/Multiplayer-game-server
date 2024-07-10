@@ -1,14 +1,23 @@
-import { gameSessions } from "./sessions.js";
-import Game from '../classes/game.class.js'
+import { gameSessions } from './sessions.js';
+import Game from '../classes/models/game.class.js';
 
-export const makeGameSession = ()=>{
-    const session = new Game(1); //따로 방을 만드는 기능이 생길때는 방별로 ID를 나눠야함
-    gameSessions.push(session);
-    session.startGame();
-    console.log("게임 생성됨",session);
-}
+export const addGameSession = (id) => {
+  const session = new Game(id);
+  gameSessions.push(session);
+  return session;
+};
+
+export const removeGameSession = (id) => {
+  const index = gameSessions.findIndex((session) => session.id === id);
+  if (index !== -1) {
+    return gameSessions.splice(index, 1)[0];
+  }
+};
 
 export const getGameSession = (id) => {
-    return gameSessions.find((session) => session.id === id);
-  };
+  return gameSessions.find((session) => session.id === toString(id));
+};
 
+export const getAllGameSessions = () => {
+  return gameSessions;
+};

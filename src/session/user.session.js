@@ -1,28 +1,31 @@
-import { userSessions } from "./sessions.js";
-import { User } from "../classes/user.class.js";
+import { userSessions } from './sessions.js';
+import User from '../classes/models/user.class.js';
 
-export const addUser = (socket, uuid, playerId) => {
-  const user = new User(uuid, socket, playerId); //유저의 초기화 상태
+export const addUser = (socket , deviceId , playerId,latency) => {
+  const user = new User(socket,deviceId,playerId,latency);
   userSessions.push(user);
   return user;
 };
 
 export const removeUser = (socket) => {
   const index = userSessions.findIndex((user) => user.socket === socket);
-  if (index != -1) {
+  if (index !== -1) {
     return userSessions.splice(index, 1)[0];
   }
 };
 
-export const getNextSequence = (id) => {
-  //시퀀스를 올려주는 함수
-  const user = getUserById(id);
-  if (user) {
-    return ++user.sequence;
-  }
-  return null;
-};
-
 export const getUserById = (id) => {
   return userSessions.find((user) => user.id === id);
+};
+
+export const getUserBySocket = (socket) => {
+  return userSessions.find((user) => user.socket === socket);
+};
+
+export const getNextSequence = (id) => {
+  const user = getUserById(id);
+  if (user) {
+    return user.getNextSequence();
+  }
+  return null;
 };

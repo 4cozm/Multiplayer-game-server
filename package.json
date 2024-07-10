@@ -1,22 +1,27 @@
 {
-  "name": "multiplayer-game-server",
+  "name": "tcp-game",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "client": "node ./test_client/client.js",
-    "migrate": "node src/utils/db/migration/crateSchemas.js"
+    "dev": "nodemon src/server.js",
+    "migrate": "node src/db/migrations/createSchemas.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "dotenv": "^16.4.5",
     "lodash": "^4.17.21",
-    "mysql2": "^3.10.2",
-    "protobufjs": "^7.3.2",
-    "uuid": "^10.0.0"
+    "long": "^5.2.3",
+    "mysql2": "^3.9.8",
+    "protobufjs": "^7.3.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.1",
+    "prettier": "^3.2.5"
   }
 }

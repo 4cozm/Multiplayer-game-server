@@ -1,22 +1,21 @@
-//js에서 프로토를 쉽게 쓰기 위해서 매핑파일 만듬(선택)
-//파일을 로드하는것과 별개로 이름을 쓰기 위함
 export const packetNames = {
   common: {
-    Packet: "common.Packet",
+    Packet: 'common.Packet',
+    Ping: 'common.Ping',
   },
-<<<<<<< HEAD
   initial: {
-    InitialPacket: "initial.InitialPacket",
+    InitialPacket: 'initial.InitialPacket',
   },
-=======
->>>>>>> parent of 72e8abb (update: 에러 핸들러)
+  game: {
+    CreateGamePayload: 'game.CreateGamePayload',
+    JoinGamePayload: 'game.JoinGamePayload',
+    LocationUpdatePayload: 'game.LocationUpdatePayload',
+  },
   response: {
-    Response: "response.Response",
+    Response: 'response.Response',
   },
-  location:{
-    LocationUpdate:"location.LocationUpdate"
+  gameNotification: {
+    LocationUpdate: 'gameNotification.LocationUpdate',
+    Start: 'gameNotification.Start',
   },
-  game:{
-    updateLocation:"game.updateLocation"
-  }
 };

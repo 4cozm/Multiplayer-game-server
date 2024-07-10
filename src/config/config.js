@@ -1,7 +1,5 @@
-//환경변수와 관련된 모든 함수는 여기서 정의함
-//이것만 호출하면 만사OK
-import { CLIENT_VERSION, HOST, PORT } from "../constants/env.js";
-import { TOTAL_LENGTH, PACKET_TYPE_LENGTH } from "../constants/header.js";
+import { PORT, HOST, CLIENT_VERSION } from '../constants/env.js';
+import { PACKET_TYPE_LENGTH, TOTAL_LENGTH } from '../constants/header.js';
 import {
   DB1_NAME,
   DB1_USER,
@@ -13,7 +11,8 @@ import {
   DB2_PASSWORD,
   DB2_HOST,
   DB2_PORT,
-} from "../constants/env.js";
+} from '../constants/env.js';
+
 export const config = {
   server: {
     port: PORT,
@@ -41,7 +40,6 @@ export const config = {
       host: DB2_HOST,
       port: DB2_PORT,
     },
+    // 필요한 만큼 추가
   },
 };
-
-export default config;
