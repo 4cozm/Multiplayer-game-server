@@ -5,7 +5,7 @@ import { ErrorCodes } from '../../utils/error/errorCodes.js';
 
 const updateLocationHandler = ({ socket, userId, payload }) => {
   try {
-    const {x, y } = payload;
+    const { x, y } = payload;
     const gameSession = getGameSession(1);
 
     if (!gameSession) {
@@ -18,7 +18,6 @@ const updateLocationHandler = ({ socket, userId, payload }) => {
     }
     user.updatePosition(x, y);
     const packet = gameSession.getAllLocation(userId);
-    console.log(`유저 ${user.id} ,${x,y}`)
     socket.write(packet);
   } catch (error) {
     handleError(socket, error);

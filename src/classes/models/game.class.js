@@ -61,12 +61,10 @@ class Game {
 
   getAllLocation(excludeUserId) {
     const maxLatency = this.getMaxLatency();
-
     const locationData = this.users
       .filter((user) => user.id !== excludeUserId)
       .map((user) => {
         const { x, y } = user.calculatePosition(maxLatency);
-        console.log();
         return { id: user.id, playerId: user.playerId, x, y };
       });
     return createLocationPacket(locationData);
