@@ -3,7 +3,7 @@
 
 ![image](https://github.com/4cozm/Multiplayer-game-server/assets/49065386/24efd2a9-94ed-446e-9a40-d3b380361e81)
 
-# 접속 주소 43.203.249.219:5500
+# 접속 주소 43.203.249.219:5555
 
 TCP로 실시간 게임 서버를 구동하는 프로젝트 입니다
 
