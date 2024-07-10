@@ -12,7 +12,9 @@ const initialHandler = async ({ socket, userId, payload }) => {
     const user = addUserSession(socket, deviceId, playerId, latency);
     const gameSession = getGameSession(1);
     gameSession.addUser(user);
-    console.log('유저 추가됨 initialHandler');
+    if (user) {
+      console.log('initialHandler코드로 유저 추가됨');
+    }
     const initialResponse = createResponse(HANDLER_IDS.INITIAL, RESPONSE_SUCCESS_CODE, {
       userId: deviceId,
     });

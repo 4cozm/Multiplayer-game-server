@@ -16,7 +16,7 @@ class Game {
 
   addUser(user) {
     if (this.users.length >= MAX_PLAYERS) {
-      throw new Error('Game session is full');
+      throw new Error('게임 세션이 꽉 찼습니다 현재 유저수:',this.users.length);
     }
     this.users.push(user);
 
